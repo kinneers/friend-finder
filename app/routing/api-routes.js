@@ -2,16 +2,21 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var friends = require('../data/friends');
+var bodyParser = require('body-parser');
+var parseURLencoded = bodyParser.urlencoded({ extended: false });
 
-// 4. Your `apiRoutes.js` file should contain two routes:
-
-//    * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
+//GET route with the url `/api/friends` (/api is already set in server.js) used to display a JSON of all possible friends
 router.get('/friends', function(req, res) {
     res.send(friends);
 });
 
-//    * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-router.post('/friends', function(req, res) {
+//POST route with url `/api/friends` (/api is already set in server.js) used to handle incoming survey results and the compatibility logic
+router.post('/friends', parseURLencoded, function(req, res) {
+    $('#submitSurvey').on('click tap', function(){
+        event.preventDefault();
+        console.log("Submit Button Working");
+    })
+    //var currentUserResults = []; //return the array of results from the current user
 
 
 
@@ -37,6 +42,7 @@ router.post('/friends', function(req, res) {
 // 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 //    * The modal should display both the name and picture of the closest match.
 
-
 })
+
+//Exports the router as a Node module
 module.exports = router;
