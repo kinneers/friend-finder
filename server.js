@@ -3,35 +3,15 @@ var path = require('path');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+app.use(express.static(path.join(__dirname + '/app/public')))
 
 //DUE FEBRUARY 23
 
+var htmlRoutes = require('./app/routing/html-routes');
+app.use('/', htmlRoutes);
 
-// 6. Determine the user's most compatible friend using the following as a guide:
-
-//    * Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
-//    * With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
-//      * Example:
-//        * User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-//        * User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
-
-//USE: Math.abs(result);
-
-//        * Total Difference: **2 + 1 + 2 =** **_5_**
-
-//USE reduce();
-
-//    * Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on.
-//    * The closest match will be the user with the least amount of difference.
-
-
-
-// 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-//    * The modal should display both the name and picture of the closest match.
-
-
-
-
+var apiRoutes = require('./app/routing/api-routes');
+app.use('/api', apiRoutes);
 
 app.listen(PORT, function() {
     console.log('Listening on Port' + PORT);

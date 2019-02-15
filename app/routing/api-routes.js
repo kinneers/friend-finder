@@ -1,16 +1,17 @@
-
-//Not sure if I need to require express here or export this file or what- I think we will cover that in class Saturday... I will try to figure it out if I have time between now and Saturday
-
+var express = require('express');
+var router = express.Router();
+var path = require('path');
+var friends = require('../data/friends');
 
 // 4. Your `apiRoutes.js` file should contain two routes:
 
 //    * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
-app.get('/api/friends', function(req, res) {
-    res.json(friends);
+router.get('/friends', function(req, res) {
+    res.send(friends);
 });
 
 //    * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-app.post('/api/friends', function(req, res) {
+router.post('/friends', function(req, res) {
 
 
 
@@ -38,3 +39,4 @@ app.post('/api/friends', function(req, res) {
 
 
 })
+module.exports = router;

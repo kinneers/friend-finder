@@ -1,15 +1,19 @@
-
-//Not sure if I need to require express here or export this file or what- I think we will cover that in class Saturday... I will try to figure it out if I have time between now and Saturday
-
+var express = require('express');
+var router = express.Router();
+var path = require('path');
 
 // 3. Your `htmlRoutes.js` file should include two routes:
 
 //    * A GET Route to `/survey` which should display the survey page.
-app.get('/survey', function(req, res) {
-    res.sendFile(__dirname + '../public/survey.html');
+router.get('/survey',function(req, res) {
+    res.sendFile(path.join(__dirname + '/../public/survey.html'));
 });
 
 //    * A default, catch-all route that leads to `home.html` which displays the home page.
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '../public/home.html');
+//The root path relative to the path where this router is mounted in server.js
+router.get('/',function(req, res) {
+    res.sendFile(path.join(__dirname + '/../public/home.html'));
 });
+
+//Exports the router as a Node module
+module.exports = router;
