@@ -11,11 +11,10 @@ router.get('/friends', function(req, res) {
 });
 
 //POST route with url `/api/friends` (/api is already set in server.js) used to handle incoming survey results and the compatibility logic
-router.post('/friends', parseURLencoded, function(req, res) {
-    $('#submitSurvey').on('click tap', function(){
-        event.preventDefault();
-        console.log("Submit Button Working");
-    })
+router.post('/friends', function(req, res) {
+    console.log("Submit Button Working");
+    friends.push(req.body);
+});
     //var currentUserResults = []; //return the array of results from the current user
 
 
@@ -41,8 +40,6 @@ router.post('/friends', parseURLencoded, function(req, res) {
 
 // 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 //    * The modal should display both the name and picture of the closest match.
-
-})
 
 //Exports the router as a Node module
 module.exports = router;

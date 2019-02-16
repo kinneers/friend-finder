@@ -12,6 +12,7 @@ router.get('/',function(req, res) {
     res.sendFile(path.join(__dirname + '/../public/home.html'));
 });
 
+//Redirects to github repo on click of /github link
 router.get('/github', function(req, res) {
     res.status(301).redirect("https://github.com/kinneers/friend-finder");
 });

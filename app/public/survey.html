@@ -15,11 +15,11 @@
             <h3 class="card-text" style="line-height: 2">About You</h3>
             <p>Name (Required)</p>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="name" aria-describedby="name">
+                <input type="text" class="form-control" aria-label="name" aria-describedby="name" id="name">
             </div>
             <p>Link to Photo Image (Required)</p>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="link to photo" aria-describedby="photoLink">
+                <input type="text" class="form-control" aria-label="link to photo" aria-describedby="photoLink" id="photoLink">
             </div>
             <hr>
 
@@ -159,5 +159,72 @@
     <div class="card mx-auto" style="max-width: 1150px; border: none; flex-direction: row">
         <a target="_blank" href="/api/friends">API Friends List&nbsp;</a>|<a target="_blank" href="/github">&nbsp;GitHub Repo</a>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+<!-- Handles how the form data is sent to the server -->
+<script type="text/javascript">
+    $("#submitSurvey").on("click tap", function(event) {
+        event.preventDefault();
+
+        //Form Validation (Checks that all values have been filled out):
+        if ($('#name').val().trim() === '' || $('#photoLink').val().trim() === '' || ($('#q1').val() === "Select an Option" || $('#q2').val() === "Select an Option" || $('#q3').val() === "Select an Option" || $('#q4').val() === "Select an Option" || $('#q5').val() === "Select an Option" || $('#q6').val() === "Select an Option" || $('#q7').val() === "Select an Option" || $('#q8').val() === "Select an Option" || $('#q9').val() === "Select an Option" || $('#q10').val() === "Select an Option")) {
+            alert("You must enter a value for each field.");
+        } else {
+           //Intialize an array to hold scores temporarily
+            var scoreArray = [];
+            //Captures each score and pushes each one to the scoreArray in order
+            var q1 = $('#q1').val();
+            scoreArray.push(q1);
+            var q2 = $('#q2').val();
+            scoreArray.push(q2);
+            var q3 = $('#q3').val();
+            scoreArray.push(q3);
+            var q4 = $('#q4').val();
+            scoreArray.push(q4);
+            var q5 = $('#q5').val();
+            scoreArray.push(q5);
+            var q6 = $('#q6').val();
+            scoreArray.push(q6);
+            var q7 = $('#q7').val();
+            scoreArray.push(q7);
+            var q8 = $('#q8').val();
+            scoreArray.push(q8);
+            var q9 = $('#q9').val();
+            scoreArray.push(q9);
+            var q10 = $('#q10').val();
+            scoreArray.push(q10);
+
+            // Create a new friend object
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photoLink").val().trim(),
+                scores: scoreArray
+            };
+    
+            console.log(newFriend); 
+            
+            // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+    //
+    //We send the newFriend object along the api/
+    $.post("/api/friends", newFriend,
+        function(data) {
+
+            //This sends the new friend to the api... the logic needs to happen either here or somewhere else- in api-routes.js I think...
+  
+            // Clears the form on submit
+            $("#name").val("");
+            $("#photoLink").val("");
+            //Also clears score array
+            scoreArray = [];
+        });
+        }
+  
+    
+    });
+    </script>
 </body>
 </html>
