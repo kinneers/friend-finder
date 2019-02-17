@@ -10,6 +10,9 @@ router.get('/friends', function(req, res) {
     res.send(friends);
 });
 
+
+var indexOfLowest;
+
 //POST route with url `/api/friends` (/api is already set in server.js) used to handle incoming survey results and the compatibility logic
 router.post('/friends', function(req, res) {
     //Determine the user's most compatible friend:\
@@ -50,7 +53,6 @@ router.post('/friends', function(req, res) {
         callback();
     }
 
-    var indexOfLowest;
     //Uses a callback to ensure results from the getCompatibilityArray function are returned prior to calculating the index holding the lowest number (which corresponds to the index of the most compatible friend in the array of friend Objects)
     getCompatibilityArray(currentUserScores, function() {
         //Initializes at index 0, then iterates through array and replaces the index number of any numbers found lower than the currently set index
@@ -65,24 +67,42 @@ router.post('/friends', function(req, res) {
 
     console.log(indexOfLowest);
 
+    
+
     //Gets the name of most compatible friend
     var bffName = friends[indexOfLowest].name;
     console.log(bffName);
+    //Gets the photo URL of the most compatible friend
     var bffPhoto = friends[indexOfLowest].photo;
     console.log(bffPhoto);
     
-//    * The closest match will be the user with the least amount of difference.
-
-
-// 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-//    * The modal should display both the name and picture of the closest match.
-    //use res.send() to send back the modal with the closest match... I think???
-    //var modal = json.stringify($('#myModal').modal('show'));
-
-    res.send(modal);
+    //This modal returns the bffName to the user- I AM STILL WORKING ON GETTING THE PICTURE TO DISPLAY
+    var modal = 
+        `<div id="resultsModal" class='modal' tabindex='-1' role='dialog'>
+            <div class='modal-dialog' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>Your most compatible BFF is:</h5>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                    <div class='modal-body'>
+                        <p id='bffName'>${bffName}</p>
+                        <img src='${bffPhoto}' id='bffPhoto'>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>`
 
     //Push the original currentUserResults Object to the friends array
     friends.push(currentUserResults);
+
+    //Sends the current user a modal displaying their BFF
+    res.send(modal);
 });
 
 //Exports the router as a Node module

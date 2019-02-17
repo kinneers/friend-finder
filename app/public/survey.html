@@ -159,18 +159,17 @@
         </div>
     </form>
 
-    <div class='modal' tabindex='-1' role='dialog'>
-        <div class='modal-dialog' role='document'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <h5 class='modal-title'>Your Most Compatible Friend Is...</h5>
-                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
+    <div id='inputWarning' class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Input Warning</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class='modal-body'>
-                    <p id='bffName'></p>
-                    <p id='bffPhoto'></p>
+                <div class="modal-body">
+                    <p>You must enter a value for each field.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -179,6 +178,7 @@
         </div>
     </div>
 
+    <div id='addModal'></div>
 
     <div class="card mx-auto" style="max-width: 1150px; border: none; flex-direction: row">
         <a target="_blank" href="/api/friends">API Friends List&nbsp;</a>|<a target="_blank" href="/github">&nbsp;GitHub Repo</a>
@@ -186,9 +186,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <!-- Handles how the form data is sent to the server -->
     <script type="text/javascript">
+
+    $('#inputWarning').modal('hide');
+
     $("#submitSurvey").on("click tap", function(event) {
         event.preventDefault();
 
@@ -200,7 +204,7 @@
             //MAKE ME A MODAL!
             //
             //
-            alert("You must enter a value for each field.");
+            $('#inputWarning').modal('show');
         } else {
             //Intialize an array to hold scores temporarily
             var scoreArray = [];
@@ -232,24 +236,17 @@
                 photo: $("#photoLink").val().trim(),
                 scores: scoreArray
             };
-        
-            console.log(newFriend); 
 
             // Clear the form on submit
             $("#name").val("");
             $("#photoLink").val("");
             $(".questions").val('default');
-            //Also clear score array
-            scoreArray = [];
 
             //Send the new friend object to the api and return a modal containing the most compatible friend
-            $.post("/api/friends", newFriend, function(modal) {
-                console.log('OK');
-                $('#myModal').on('shown.bs.modal', function () {
-                    $('#myInput').trigger('focus')
-                })
-
-
+            $.post("/api/friends", newFriend, function(data) {
+                //The modal to be shown is returned as data, appended to the page, and shown
+                $('#addModal').append(data);
+                $('#resultsModal').modal('show');
             });
         }
     });
