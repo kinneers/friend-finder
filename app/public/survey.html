@@ -8,170 +8,179 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div class="card mx-auto" style="max-width: 1150px; border: none;">
-        <div class="card-body">
-            <h1 class="card-title">Survey Questions</h5>
-            <hr>
-            <h3 class="card-text" style="line-height: 2">About You</h3>
-            <p>Name (Required)</p>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="name" aria-describedby="name" id="name">
-            </div>
-            <p>Link to Photo Image (Required)</p>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="link to photo" aria-describedby="photoLink" id="photoLink">
-            </div>
-            <hr>
+    <form>
+        <div class="card mx-auto" style="max-width: 1150px; border: none;">
+            <div class="card-body">
+                <h1 class="card-title">Survey Questions</h1>
+                <hr>
+                <h3 class="card-text" style="line-height: 2">About You</h3>
+                <p>Name (Required)</p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="name" aria-describedby="name" id="name" required>
+                </div>
+                <p>Link to Photo Image (Required)</p>
+                <div class="input-group mb-3">
+                    <input type="url" class="form-control" aria-label="link to photo" aria-describedby="photoLink" id="photoLink" required>
+                </div>
+                <hr>
 
-            <h3 class="card-text" style="line-height: 2">Question 1</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q1">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 1</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q1">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 2</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q2">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 2</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q2">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 3</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q3">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 3</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q3">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 4</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q4">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 4</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q4">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 5</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q5">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 5</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q5">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 6</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q6">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 6</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q6">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 7</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q7">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 7</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q7">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 8</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q8">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 8</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q8">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 9</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q9">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 9</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q9">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <h3 class="card-text" style="line-height: 2">Question 10</h3>
-            <p>Question Text</p>
-            <div class="input-group mb-3">
-                <select class="chosen-select" id="q10">
-                    <option selected>Select an Option</option>
-                    <option value="1">1 (Strongly Disagree)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (Strongly Agree)</option>
-                </select>
-            </div>
+                <h3 class="card-text" style="line-height: 2">Question 10</h3>
+                <p>Question Text</p>
+                <div class="input-group mb-3">
+                    <select class="chosen-select questions" id="q10">
+                        <option value="default">Select an Option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                </div>
 
-            <a id="submitSurvey" class="btn btn-primary p-3">Submit</a>
+                <a id="submitSurvey" class="btn btn-primary p-3">Submit</a>
+            </div>
         </div>
-    </div>  
+    </form>  
     <div class="card mx-auto" style="max-width: 1150px; border: none; flex-direction: row">
         <a target="_blank" href="/api/friends">API Friends List&nbsp;</a>|<a target="_blank" href="/github">&nbsp;GitHub Repo</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-<!-- Handles how the form data is sent to the server -->
-<script type="text/javascript">
+    <!-- Handles how the form data is sent to the server -->
+    <script type="text/javascript">
     $("#submitSurvey").on("click tap", function(event) {
         event.preventDefault();
 
-        //Form Validation (Checks that all values have been filled out):
-        if ($('#name').val().trim() === '' || $('#photoLink').val().trim() === '' || ($('#q1').val() === "Select an Option" || $('#q2').val() === "Select an Option" || $('#q3').val() === "Select an Option" || $('#q4').val() === "Select an Option" || $('#q5').val() === "Select an Option" || $('#q6').val() === "Select an Option" || $('#q7').val() === "Select an Option" || $('#q8').val() === "Select an Option" || $('#q9').val() === "Select an Option" || $('#q10').val() === "Select an Option")) {
+        //Form Validation (Checks that all values have been filled out and name passes name validation):
+        if ($("#name").val().trim() === "" || $("#photoLink").val().trim() === "" || $(".questions").val() === "default") {
+            //
+            //ALSO SANITIZE THIS DATA!!!
+            //
+            //MAKE ME A MODAL!
+            //
+            //
             alert("You must enter a value for each field.");
         } else {
-           //Intialize an array to hold scores temporarily
+            //Intialize an array to hold scores temporarily
             var scoreArray = [];
             //Captures each score and pushes each one to the scoreArray in order
             var q1 = $('#q1').val();
@@ -195,35 +204,31 @@
             var q10 = $('#q10').val();
             scoreArray.push(q10);
 
-            // Create a new friend object
+            // Create a new friend object and set values
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photoLink").val().trim(),
                 scores: scoreArray
             };
-    
+        
             console.log(newFriend); 
-            
-            // This line is the magic. It"s very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-    //
-    //We send the newFriend object along the api/
-    $.post("/api/friends", newFriend,
-        function(data) {
 
-            //This sends the new friend to the api... the logic needs to happen either here or somewhere else- in api-routes.js I think...
-  
             // Clears the form on submit
             $("#name").val("");
             $("#photoLink").val("");
+            $(".questions").val('default');
             //Also clears score array
             scoreArray = [];
-        });
+
+            //Sends the new friend object to the api and returns a modal containing the most compatible friend
+            $.post("/api/friends", newFriend, function(data) {
+
+
+                //return the modal with the info about the best friend match here
+
+
+            });
         }
-  
-    
     });
     </script>
 </body>
