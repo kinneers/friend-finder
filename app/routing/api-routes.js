@@ -10,9 +10,6 @@ router.get('/friends', function(req, res) {
     res.send(friends);
 });
 
-
-var indexOfLowest;
-
 //POST route with url `/api/friends` (/api is already set in server.js) used to handle incoming survey results and the compatibility logic
 router.post('/friends', function(req, res) {
     //Determine the user's most compatible friend:\
@@ -53,6 +50,7 @@ router.post('/friends', function(req, res) {
         callback();
     }
 
+    var indexOfLowest;
     //Uses a callback to ensure results from the getCompatibilityArray function are returned prior to calculating the index holding the lowest number (which corresponds to the index of the most compatible friend in the array of friend Objects)
     getCompatibilityArray(currentUserScores, function() {
         //Initializes at index 0, then iterates through array and replaces the index number of any numbers found lower than the currently set index
@@ -67,8 +65,6 @@ router.post('/friends', function(req, res) {
 
     console.log(indexOfLowest);
 
-    
-
     //Gets the name of most compatible friend
     var bffName = friends[indexOfLowest].name;
     console.log(bffName);
@@ -82,14 +78,14 @@ router.post('/friends', function(req, res) {
             <div class='modal-dialog' role='document'>
                 <div class='modal-content'>
                     <div class='modal-header'>
-                        <h5 class='modal-title'>Your most compatible BFF is:</h5>
+                        <h5 class='modal-title'>Your Most Compatible BFF:</h5>
                         <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                         <span aria-hidden='true'>&times;</span>
                         </button>
                     </div>
                     <div class='modal-body'>
                         <p id='bffName'>${bffName}</p>
-                        <img src='${bffPhoto}' id='bffPhoto'>
+                        <img src='${bffPhoto}' id='bffPhoto' style='max-height: 200px'>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
