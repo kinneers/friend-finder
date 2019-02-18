@@ -7,16 +7,16 @@ var friends = [
     "name": "Sarah",
     "photo": "https://kinneers.github.io/images/sarah.jpg",
     "scores": [
-    "1",
-    "2",
-    "5",
-    "2",
     "3",
-    "5",
+    "3",
+    "3",
+    "4",
     "2",
     "1",
-    "2",
-    "3"
+    "1",
+    "5",
+    "5",
+    "5"
     ]
     }
 ];
