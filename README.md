@@ -7,7 +7,7 @@ Compatibility-based JavaScript/jQuery "dating" app utilizing Express to handle r
 ## Technologies Used:
 Express.js, Heroku, JavaScript, jQuery, Node.js
 
-- [Photo of the Survey Page](friend-finder.png)
+![Photo of the Survey Page](friend-finder.png)
 
 ## Check Out the Live Site:
 - [Link to Live Site](https://lit-reaches-50803.herokuapp.com/)
