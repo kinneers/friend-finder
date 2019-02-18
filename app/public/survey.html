@@ -22,10 +22,11 @@
                 <div class="input-group mb-3">
                     <input type="url" class="form-control" aria-label="link to photo" aria-describedby="photoLink" id="photoLink" required>
                 </div>
+                <small>Note: To find the link to a photo posted on Facebook, find the desired image in your photos, click on it, then right click the image and select "Copy image address." Paste that image address here, making sure it does NOT begin with www.facebook.com as Facebook and similar sites block cross-site domain requests.</small>
                 <hr>
-
                 <h3 class="card-text" style="line-height: 2">Question 1</h3>
-                <p>Question Text</p>
+                
+                <p>I love animals.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q1">
                         <option value="default">Select an Option</option>
@@ -38,7 +39,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 2</h3>
-                <p>Question Text</p>
+                <p>I like to eat healthy.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q2">
                         <option value="default">Select an Option</option>
@@ -51,7 +52,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 3</h3>
-                <p>Question Text</p>
+                <p>I am physically active.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q3">
                         <option value="default">Select an Option</option>
@@ -64,7 +65,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 4</h3>
-                <p>Question Text</p>
+                <p>I need to live close to my family.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q4">
                         <option value="default">Select an Option</option>
@@ -77,7 +78,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 5</h3>
-                <p>Question Text</p>
+                <p>I like to go out clubbing.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q5">
                         <option value="default">Select an Option</option>
@@ -90,7 +91,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 6</h3>
-                <p>Question Text</p>
+                <p>I love texting instead of face-to-face conversations.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q6">
                         <option value="default">Select an Option</option>
@@ -103,7 +104,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 7</h3>
-                <p>Question Text</p>
+                <p>I need to talk to my BFF every day.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q7">
                         <option value="default">Select an Option</option>
@@ -116,7 +117,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 8</h3>
-                <p>Question Text</p>
+                <p>I am a loyal friend.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q8">
                         <option value="default">Select an Option</option>
@@ -129,7 +130,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 9</h3>
-                <p>Question Text</p>
+                <p>I love to cook.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q9">
                         <option value="default">Select an Option</option>
@@ -142,7 +143,7 @@
                 </div>
 
                 <h3 class="card-text" style="line-height: 2">Question 10</h3>
-                <p>Question Text</p>
+                <p>I am a sensitive person.</p>
                 <div class="input-group mb-3">
                     <select class="chosen-select questions" id="q10">
                         <option value="default">Select an Option</option>
@@ -199,9 +200,8 @@
         //Form Validation (Checks that all values have been filled out and name passes name validation):
         if ($("#name").val().trim() === "" || $("#photoLink").val().trim() === "" || $("#q1").val() === "default" || $("#q2").val() === "default" || $("#q3").val() === "default" || $("#q4").val() === "default" || $("#q5").val() === "default" || $("#q6").val() === "default" || $("#q7").val() === "default" || $("#q8").val() === "default" || $("#q9").val() === "default" || $("#q10").val() === "default") {
             //
-            //ALSO SANITIZE THIS DATA!!!
             //
-            //MAKE ME A MODAL!
+            //WORK ON SANITIZING THIS DATA!!!
             //
             //
             $('#inputWarning').modal('show');
@@ -250,6 +250,13 @@
             });
         }
     });
+
+    //Redirects to main page on close of modal
+    $('#addModal').on('hidden.bs.modal', function (event) {
+        console.log("Modal Closed");
+        location.reload();
+    });
+
     </script>
 </body>
 </html>

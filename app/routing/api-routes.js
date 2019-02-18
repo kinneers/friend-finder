@@ -12,7 +12,11 @@ router.get('/friends', function(req, res) {
 
 //POST route with url `/api/friends` (/api is already set in server.js) used to handle incoming survey results and the compatibility logic
 router.post('/friends', function(req, res) {
-    //Determine the user's most compatible friend:\
+    //Determine the user's most compatible friend:
+    //Initializes return variables
+    var bffName = '';
+    var bffPhoto = '';
+    var indexOfLowest = 0;
 
     //Bring in the results from the current user's form
     var currentUserResults = req.body; 
@@ -50,7 +54,6 @@ router.post('/friends', function(req, res) {
         callback();
     }
 
-    var indexOfLowest;
     //Uses a callback to ensure results from the getCompatibilityArray function are returned prior to calculating the index holding the lowest number (which corresponds to the index of the most compatible friend in the array of friend Objects)
     getCompatibilityArray(currentUserScores, function() {
         //Initializes at index 0, then iterates through array and replaces the index number of any numbers found lower than the currently set index
@@ -66,10 +69,10 @@ router.post('/friends', function(req, res) {
     console.log(indexOfLowest);
 
     //Gets the name of most compatible friend
-    var bffName = friends[indexOfLowest].name;
+    bffName = friends[indexOfLowest].name;
     console.log(bffName);
     //Gets the photo URL of the most compatible friend
-    var bffPhoto = friends[indexOfLowest].photo;
+    bffPhoto = friends[indexOfLowest].photo;
     console.log(bffPhoto);
     
     //This modal returns the bffName to the user- I AM STILL WORKING ON GETTING THE PICTURE TO DISPLAY
