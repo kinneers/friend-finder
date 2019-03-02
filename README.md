@@ -2,7 +2,7 @@
 Compatibility-based JavaScript/jQuery "dating" app utilizing Express to handle routing, hosted on Heroku.
 
 ### Developed by: Sarah Kinneer
-#### January, 2019
+#### February, 2019
 
 ## Technologies Used:
 Express.js, Heroku, JavaScript, jQuery, Node.js
