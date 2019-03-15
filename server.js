@@ -17,5 +17,6 @@ app.use('/api', apiRoutes);
 
 //Server Listener
 app.listen(PORT, function() {
-    console.log('Listening on Port' + PORT);
+    // eslint-disable-next-line no-console
+    console.log('Listening on Port ' + PORT);
 });
